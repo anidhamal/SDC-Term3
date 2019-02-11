@@ -1,5 +1,20 @@
 # CarND-Path-Planning-Project
 Self-Driving Car Engineer Nanodegree Program
+
+
+### Model Documentation
+
+## Prediction
+Based on the Sensor Fusion data of all vehicles, looped through all the vehicles to find out in which lane the vehicle belongs to. Once we knew lane of the vehicle, found out if that vehicle is ahead of our vehicle or the right or left side of our vehicle. If the other vehicle doesn't belong to our direction, simply moved with next vehicle data. If the vehicle is on right or left side of our vehicle, found out safe distance if we need to take that lane.
+
+## Behavior
+If the car ahead of ego vehicle is slow, checked if there's no vehicle on right or left side in safe distance. If no vehicle is in safe distance, changed lane otherwise reduced the speed of ego vehicle. If there's no car ahead of ego vehicle, increased the speed smoothly up to the maximum speed considering jerk.
+
+## Trajectory generation
+Now we know which lane and what speed to follow, used `Spline` to get trajectory generation for the ego vehicle. Here considered previous waypoints and updated only affected waypoints ahead of the car.
+   
+
+
    
 ### Simulator.
 You can download the Term3 Simulator which contains the Path Planning Project from the [releases tab (https://github.com/udacity/self-driving-car-sim/releases/tag/T3_v1.2).  
